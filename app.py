@@ -8,7 +8,6 @@ import asyncio
 import os
 import io
 import certifi
-import sslr
 import requests
 import time
 
