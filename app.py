@@ -10,6 +10,11 @@ import io
 import certifi
 import requests
 import time
+from os import environ
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 app = Flask(__name__, template_folder='templates')
 
@@ -380,4 +385,5 @@ if __name__ == "__main__":
     app.run(debug=True)
 else:
     # Production
-    app.run()
+    port = int(environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
