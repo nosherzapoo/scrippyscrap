@@ -1,0 +1,251 @@
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --background: #f8fafc;
+    --text: #1e293b;
+    --border: #e2e8f0;
+    --error: #ef4444;
+    --success: #22c55e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #64748b;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.analysis-options {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-group .checkmark {
+    position: absolute;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #fff;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.checkbox-group:hover input ~ .checkmark {
+    border-color: var(--primary-color);
+}
+
+.checkbox-group input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 7px;
+    top: 3px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-group input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.nested-checkbox {
+    margin-left: 35px;
+    margin-top: 0.75rem;
+    display: none;
+    padding-left: 35px;
+    position: relative;
+}
+
+.nested-checkbox .checkbox-group {
+    margin-bottom: 0;
+}
+
+.experimental-tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    background: #fef2f2;
+    color: #dc2626;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.submit-btn, .download-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover, .download-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.progress-container {
+    margin-top: 2rem;
+}
+
+.progress-bar {
+    height: 0.5rem;
+    background-color: var(--border);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+#downloadSection {
+    margin-top: 1rem;
+}
+
+footer {
+    margin-top: 3rem;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Add these to your existing CSS */
+.credentials-section,
+.scraping-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input[type="password"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.credentials-section .form-group:last-child {
+    margin-bottom: 0;
+} 

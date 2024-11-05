@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reddit Scraper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Reddit Scraper</h1>
+            <p class="subtitle">Extract and analyze Reddit posts with ease</p>
+        </header>
+
+        <main>
+            <form id="scrapeForm" method="POST" action="/scrape">
+                <!-- Reddit API Credentials -->
+                <div class="credentials-section">
+                    <h2>Reddit API Credentials</h2>
+                    <div class="form-group">
+                        <label for="client_id">Client ID</label>
+                        <input type="text" id="client_id" name="client_id" required 
+                               placeholder="Enter your Reddit API client ID">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="client_secret">Client Secret</label>
+                        <input type="password" id="client_secret" name="client_secret" required 
+                               placeholder="Enter your Reddit API client secret">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Reddit Username</label>
+                        <input type="text" id="username" name="username" required 
+                               placeholder="Enter your Reddit username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Reddit Password</label>
+                        <input type="password" id="password" name="password" required 
+                               placeholder="Enter your Reddit password">
+                    </div>
+                </div>
+
+                <!-- Scraping Options -->
+                <div class="scraping-section">
+                    <h2>Scraping Options</h2>
+                    <div class="form-group">
+                        <label for="subreddit">Subreddit Name</label>
+                        <input type="text" id="subreddit" name="subreddit" required 
+                               placeholder="Enter subreddit name (without r/)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="max_posts">Number of Posts</label>
+                        <input type="number" id="max_posts" name="max_posts" 
+                               min="1" max="1000" value="100" required>
+                    </div>
+                </div>
+
+                <!-- Analysis Options -->
+                <div class="analysis-options">
+                    <h2>Analysis Options</h2>
+                    <label class="checkbox-group">
+                        Include Sentiment Analysis
+                        <input type="checkbox" id="include_sentiment" name="include_sentiment" value="true">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <div class="nested-checkbox" id="sentiment_score_option">
+                        <label class="checkbox-group">
+                            Include Sentiment Score
+                            <input type="checkbox" id="include_sentiment_score" name="include_sentiment_score" value="true">
+                            <span class="checkmark"></span>
+                            <span class="experimental-tag">experimental</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Start Scraping</button>
+            </form>
+
+            <div class="progress-container" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 0%"></div>
+                </div>
+                <p class="progress-text">0%</p>
+            </div>
+
+            <div id="downloadSection" style="display: none;">
+                <button id="downloadBtn" class="download-btn">Download CSV</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with Flask & RoBERTa • <a href="https://github.com/yourusername/scrippyscrap" target="_blank">GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
