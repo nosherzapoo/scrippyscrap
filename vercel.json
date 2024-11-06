@@ -2,9 +2,12 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.py",
+      "src": "production/app.py",
       "use": "@vercel/python@3.1.30",
-      "config": { "runtime": "python3.9" }
+      "config": { 
+        "runtime": "python3.9",
+        "maxLambdaSize": "15mb"
+      }
     }
   ],
   "routes": [
@@ -12,5 +15,8 @@
       "src": "/(.*)",
       "dest": "production/app.py"
     }
-  ]
+  ],
+  "env": {
+    "PYTHON_VERSION": "3.9"
+  }
 }
