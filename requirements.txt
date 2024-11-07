@@ -11,7 +11,7 @@ numpy
 setuptools==57.0.0
 wheel==0.37.0
 transformers==4.30.2
-torch==1.13.1
+torch
 requests==2.31.0
 prawcore
 certifi
