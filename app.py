@@ -19,7 +19,16 @@ import numpy as np
 # Load environment variables
 load_dotenv()
 
-app = Flask(__name__)
+# Configure for serverless
+if os.getenv('VERCEL_ENV') == 'production':
+    app = Flask(__name__, 
+                static_folder='static',
+                static_url_path='/static')
+else:
+    app = Flask(__name__)
+
+# Disable GPU for transformers
+os.environ['CUDA_VISIBLE_DEVICES'] = ''
 
 # Initialize RoBERTa model and tokenizer
 MODEL_NAME = "cardiffnlp/twitter-roberta-base-sentiment"
@@ -230,10 +239,3 @@ def download():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-if __name__ == "__main__":
-    # Development
-    app.run(debug=True)
-else:
-    # Production
-    port = int(environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
